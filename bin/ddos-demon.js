@@ -1,6 +1,6 @@
 'use strict';
 require('dotenv').config();
-const exec  = require('child_process').exec;
+const spawn = require('child_process').spawn;
 
 module.exports = {
     boot(server) {
@@ -9,6 +9,6 @@ module.exports = {
         command = command.replace(/:host/g, server.host);
         command = command.replace(/:port/g, server.port);
 
-        exec(command)
+        spawn(command)
     }
 }
